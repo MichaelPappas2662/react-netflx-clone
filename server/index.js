@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose")
 const dotevnv = require("dotenv");
+const authRoute = require("./routes/auth");
 
 dotevnv.config();
 
@@ -14,6 +15,8 @@ mongoose
   .catch((err) => {
     console.error(err);
   });
+
+app.use("/api/auth", authRoute);
 
 
 app.listen(8800, ()=> {
