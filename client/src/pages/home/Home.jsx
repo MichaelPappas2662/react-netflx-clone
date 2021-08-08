@@ -1,10 +1,9 @@
+import Navbar from "../../components/navbar/Navbar";
 import "./home.scss";
 
 function Home() {
     return (
-        <div>
-            
-        </div>
+        <Navbar/>
     )
 }
 
