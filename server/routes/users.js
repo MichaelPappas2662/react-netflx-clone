@@ -2,8 +2,8 @@ const router = require("express").Router();
 const User = require("../models/User");
 const CryptoJS = require("crypto-js");
 const verify = require("../verifyToken");
-
 //UPDATE
+
 router.put("/:id", verify, async (req, res) => {
   if (req.user.id === req.params.id || req.user.isAdmin) {
     if (req.body.password) {
@@ -45,6 +45,7 @@ router.delete("/:id", verify, async (req, res) => {
 });
 
 //GET
+
 router.get("/find/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
