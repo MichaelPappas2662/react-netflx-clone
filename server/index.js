@@ -4,6 +4,7 @@ const mongoose = require("mongoose")
 const dotevnv = require("dotenv");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
+const movieRoute = require("./routes/movies");
 
 dotevnv.config();
 
@@ -22,6 +23,7 @@ mongoose
 app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
+app.use("/api/movies", movieRoute);
 
 
 app.listen(8800, ()=> {
