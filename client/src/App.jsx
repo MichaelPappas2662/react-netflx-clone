@@ -11,13 +11,22 @@ import {
 } from "react-router-dom";
 
 const App = () => {
+  const user = true;
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          <Home />
+      <Route exact path="/">
+          {user ? <Home /> : <Redirect to="/register"/>}
         </Route>
-        <Route path="/series">
+      <Route exact path="/register">
+          {!user ? <Register /> : <Redirect to="/"/>}
+        </Route>
+        <Route exact path="/login">
+          {!user ? <Login /> : <Redirect to="/"/>}    
+        </Route>
+        { user && (
+          <>
+          <Route path="/series">
           <Home type="series"/>
         </Route>
         <Route path="/movies">
@@ -26,6 +35,9 @@ const App = () => {
         <Route path="/watch">
           <Watch/>
         </Route>
+        </>
+        )
+      }
       </Switch>
     </Router>
   );
