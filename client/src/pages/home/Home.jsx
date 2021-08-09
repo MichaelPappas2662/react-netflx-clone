@@ -17,6 +17,12 @@ const Home = ({type}) => {
           `lists${type ? "?type=" + type : ""}${
             genre ? "&genre=" + genre : ""
           }`,
+          {
+            headers: {
+              token:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTBiMzlkNDRmMzU2NjVlYzdkMWQwZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyODQ4OTg4NCwiZXhwIjoxNjI4OTIxODg0fQ.MCxApID3VRdBjBXHaOqbIthrDaIR5dE1CT56pdzc7mY",
+            },
+          }
         );
         setLists(res.data);
       } catch (err) {
@@ -30,10 +36,10 @@ const Home = ({type}) => {
     <div className="home">
       <Navbar />
       <Featured type={type}/>
-      <List/>
-      <List/>
-      <List/>
-      <List/>
+      {lists.map((list)=> (
+        <List list={list}/>
+      ))}
+      
     </div>
   );
 };
