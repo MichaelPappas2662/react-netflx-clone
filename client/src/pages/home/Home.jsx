@@ -7,7 +7,7 @@ const Home = ({type}) => {
   return (
     <div className="home">
       <Navbar />
-      <Featured type="type"/>
+      <Featured type={type}/>
       <List/>
       <List/>
       <List/>

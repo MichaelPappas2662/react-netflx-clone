@@ -17,11 +17,14 @@ const App = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route type="/series">
+        <Route path="/series">
           <Home type="series"/>
         </Route>
-        <Route type="/movies">
+        <Route path="/movies">
           <Home type="movies"/>
+        </Route>
+        <Route path="/watch">
+          <Watch/>
         </Route>
       </Switch>
     </Router>
