@@ -12,12 +12,14 @@ import { Link } from "react-router-dom";
 export default function ListItem({ index , item}) {
   const [isHovered, setIsHovered] = useState(false);
   const [movie, setMovie] = useState({});
+  const axiosInstance = axios.create({baseURL:process.env.REACT_APP_API_URL});
+
 
 
   useEffect(() => {
     const getMovie = async () => {
       try {
-        const res = await axios.get("/movies/find/" + item, {
+        const res = await axiosInstance.get("/movies/find/" + item, {
           headers: {
             token:
             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTBiMzlkNDRmMzU2NjVlYzdkMWQwZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyODQ4OTg4NCwiZXhwIjoxNjI4OTIxODg0fQ.MCxApID3VRdBjBXHaOqbIthrDaIR5dE1CT56pdzc7mY",

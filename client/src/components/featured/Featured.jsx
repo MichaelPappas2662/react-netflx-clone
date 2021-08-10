@@ -5,11 +5,12 @@ import "./featured.scss";
 
 export default function Featured({ type, setGenre }) {
   const [content, setContent] = useState({});
+  const axiosInstance = axios.create({baseURL:process.env.REACT_APP_API_URL});
 
   useEffect(() => {
     const getRandomContent = async () => {
       try {
-        const res = await axios.get(`/movies/random?type=${type}`, {
+        const res = await axiosInstance.get(`/movies/random?type=${type}`, {
           headers: {
             token:
             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTBiMzlkNDRmMzU2NjVlYzdkMWQwZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyODQ4OTg4NCwiZXhwIjoxNjI4OTIxODg0fQ.MCxApID3VRdBjBXHaOqbIthrDaIR5dE1CT56pdzc7mY",

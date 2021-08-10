@@ -21,6 +21,10 @@ mongoose
     console.error(err);
   });
 
+app.use(
+  cors()
+);
+
 app.use(express.json());
 
 app.use("/api/auth", authRoute);

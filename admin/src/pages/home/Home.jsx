@@ -27,11 +27,12 @@ export default function Home() {
   );
 
   const [userStats, setUserStats] = useState([]);
+  const axiosInstance = axios.create({baseURL:process.env.REACT_APP_API_URL});
 
   useEffect(() => {
     const getStats = async () => {
       try {
-        const res = await axios.get("/users/stats", {
+        const res = await axiosInstance.get("/users/stats", {
           headers: {
             token:
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTBiMzlkNDRmMzU2NjVlYzdkMWQwZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyODQ4OTg4NCwiZXhwIjoxNjI4OTIxODg0fQ.MCxApID3VRdBjBXHaOqbIthrDaIR5dE1CT56pdzc7mY",
